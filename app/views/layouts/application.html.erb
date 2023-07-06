@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MeilisearchApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+
+<ul>
+  <%
+=begin%>
+ <li><%= link_to 'Home', root_path %></li> 
+<%
+=end%>
+  <li><%= link_to 'Product Search', products_search_path %></li>
+  <li><%= link_to 'Products', products_path %></li>
+</ul>
+    <%= yield %>
+  </body>
+</html>

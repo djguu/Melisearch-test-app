@@ -1,0 +1,21 @@
+<h1>Product Search</h1>
+
+<%= form_tag products_search_path, method: :get do %>
+  <%= text_field_tag :query, @query, placeholder: 'Search products' %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
+<h2>Results</h2>
+
+<%= @results %>
+
+
+<% if @results['hits'].present? %>
+  <ul>
+    <% @results['hits'].each do |hit| %>
+      <li><%= link_to hit['name'], product_path(hit['id']) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No results found.</p>
+<% end %>
